@@ -1,7 +1,11 @@
 import fs from "fs";
 import { exit } from "process";
 
-if (fs.existsSync("db.json")) {
-  console.log("File exists!");
-  exit(1);
+export default function dbFileCheck() {
+  if (!fs.existsSync("db.json")) {
+    console.log("Database is Empty. Create some data!");
+    exit(1);
+  }
 }
+
+//'exit(1)' --> terminates node.js process
